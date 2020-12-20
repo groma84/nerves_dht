@@ -30,16 +30,22 @@ ifeq ($(TRAVIS),true)
     DEFAULT_TARGETS = priv
 endif
 
-# Rasperry Platfrom
+# Raspberry Platform
 CFLAGS := $(CFLAGS) -D$(MIX_TARGET)
 ifeq ($(MIX_TARGET),rpi)
     SRC = $(wildcard src/*.c src/rpi/*.c)
+endif
+ifeq ($(MIX_TARGET),rpi0)
+    SRC = $(wildcard src/*.c src/rpi0/*.c)
 endif
 ifeq ($(MIX_TARGET),rpi2)
     SRC = $(wildcard src/*.c src/rpi2/*.c)
 endif
 ifeq ($(MIX_TARGET),rpi3)
-    SRC = $(wildcard src/*.c src/rpi2/*.c)
+    SRC = $(wildcard src/*.c src/rpi3/*.c)
+endif
+ifeq ($(MIX_TARGET),rpi4)
+    SRC = $(wildcard src/*.c src/rpi4/*.c)
 endif
 SRC ?=
 
